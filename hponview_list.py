@@ -1,4 +1,4 @@
-
+# This script requires you to provide the json data in the file, see file_path
 import json
 import os.path
 import csv
@@ -8,8 +8,7 @@ processor_count_total=0
 processor_core_count_total=0
 
 for x in range(1, 5):
-	file_path = os.path.join('/home/michal/Downloads', 'hponeview_'+str(x))
-
+	file_path = '/home/michal/Downloads/hponeview_'+str(x)
 	with open(file_path, "r") as json_data:
 		i = json.load(json_data)
 		for x in i['members']:
@@ -17,7 +16,6 @@ for x in range(1, 5):
 			servers_total += 1
 			processor_count_total += x['processorCount']
 			processor_core_count_total += x['processorCoreCount']
-
 
 print('Total number of Servers:' + ' ' + str(servers_total))
 print('Processor Count total:' + ' ' + str(processor_count_total))
